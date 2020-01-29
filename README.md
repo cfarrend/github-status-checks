@@ -58,5 +58,22 @@ Get our result
   ...
 ```
 
+### 919552ec48634f0018edb1d61547edbec14de260
+Same deal - this time we will manually update the status
+```
+curl -i -u cfarrend:$GITHUB_TOKEN -X POST -d '{"state": "success"}' https://api.github.com/repos/cfarrend/github-status-checks/statuses/919552ec48634f0018edb1d61547edbec14de260
+```
+
+Query the API
+```
+curl -i -u cfarrend:$GITHUB_TOKEN https://api.github.com/repos/cfarrend/github-status-checks/commits/919552ec48634f0018edb1d61547edbec14de260/status
+  ...
+{
+  "state": "success",
+  "statuses": [
+    {
+  ...    
+```
+
 ## Expected Behaviour
 Given that most CI tools make use of commit statuses to denote a failure or success in a build, it should only be right that GitHub Actions does the same. Else, by querying the API we don't have any way of knowing if a commit is "successful" or not. Unless there is some other way?
