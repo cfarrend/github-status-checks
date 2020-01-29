@@ -39,3 +39,24 @@ Now when querying the API for status
 ```
 
 If you click on the 'x' next to this commit which shows the different checks. You will see that there is one from GitHub actions
+
+### 9186b3a20103e5e30b7d2fad61810da68fdc6e78
+A successful GitHub Action run, this is pretty much the same as failure
+
+Query the API
+```
+curl -i -u cfarrend:$GITHUB_TOKEN https://api.github.com/repos/cfarrend/github-status-checks/commits/9186b3a20103e5e30b7d2fad61810da68fdc6e78/status
+```
+
+Get our result
+```
+{
+  "state": "pending",
+  "statuses": [
+
+  ],
+  ...
+```
+
+## Expected Behaviour
+Given that most CI tools make use of commit statuses to denote a failure or success in a build, it should only be right that GitHub Actions does the same. Else, by querying the API we don't have any way of knowing if a commit is "successful" or not. Unless there is some other way?
