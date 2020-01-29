@@ -1,0 +1,12 @@
+name: Push workflow
+
+on: push
+
+jobs:
+
+  my-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run command
+      run: |
+        this-doesnt-exist-fail-me
